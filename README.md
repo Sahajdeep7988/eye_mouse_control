@@ -1,77 +1,78 @@
 
+# Eye-Controlled Mouse Project
 
-# Eye-Controlled Mouse
-
-This project is a Python-based application that allows users to control the mouse cursor using eye movements. 
-It employs OpenCV for image processing, MediaPipe for facial landmark detection, and PyAutoGUI for cursor manipulation.
+This project enables users to control their computer's mouse cursor using eye movements. The system leverages Python, OpenCV, MediaPipe, and PyAutoGUI for real-time eye tracking and smooth cursor manipulation.
 
 ## Features
 
-- **Real-time Eye Tracking**: Tracks eye movements using the device's webcam.
-- **Cursor Movement**: Maps eye directions to cursor movements on the screen.
-- **Adjustable Settings**: Customize cursor speed and sensitivity as needed.
+- **Real-time Eye Tracking**: Tracks eye movements via webcam using MediaPipe.
+- **Cursor Movement**: Maps eye positions to screen coordinates for controlling the cursor.
+- **Blink Detection**: Detects blinks and maps them to mouse clicks:
+  - **Left Blink**: Performs a right-click.
+  - **Right Blink**: Performs a left-click.
+- **Customizable Settings**: Adjust cursor speed and blink thresholds for better control.
 
 ## Prerequisites
 
-Ensure you have the following software and libraries installed before running the project:
+Ensure you have the following installed on your system:
 
 - Python 3.x
 - OpenCV
 - MediaPipe
 - PyAutoGUI
 
-Install the required dependencies using the following command:
+Install the required Python libraries using the following command:
 
 ```bash
 pip install opencv-python mediapipe pyautogui
 ```
 
-or use 
-
-```bash
-pip install -r requirements.txt
-```
-
 
 ## How It Works
 
-1. **Camera Feed**: Captures real-time video using the webcam.
-2. **Eye Detection**: Utilizes MediaPipe to detect facial landmarks and track the eyes.
-3. **Cursor Control**: Translates eye movement to mouse cursor movement using PyAutoGUI.
+1. **Eye Tracking**:
+   - MediaPipe's Face Mesh is used to identify and track facial landmarks, particularly around the eyes.
+2. **Cursor Movement**:
+   - Eye positions are mapped to screen coordinates using the resolution of the user's screen.
+3. **Blink Detection**:
+   - Eye Aspect Ratio (EAR) is calculated to detect blinks. Detected blinks are mapped to specific mouse actions.
 
 ## Usage
 
 1. Clone or download this repository to your local machine.
-2. Open a terminal and navigate to the project directory.
+2. Connect a webcam to your system.
 3. Run the main Python script:
 
 ```bash
-python eye_control.py
+python main.py
 ```
 
-4. Make sure your webcam is enabled, as it is required for eye tracking.
+4. Ensure the webcam feed is visible and functional. Move your eyes to control the cursor and blink to perform mouse clicks.
 
-## Project Structure
+## Project Files
 
-- **`eye_control.py`**: The primary script for eye tracking and cursor control.
-- **`README.md`**: This file, providing project details and instructions.
+- **`eye_tracker.py`**: Handles eye tracking and blink detection using MediaPipe.
+- **`mouse_control.py`**: Controls mouse movements and clicks using PyAutoGUI.
+- **`main.py`**: The main script that integrates all components and runs the application.
+- **`README.md`**: Documentation for the project.
 
 ## Future Enhancements
 
-- Add blink-based mouse clicks for hands-free interaction.
-- Enhance accuracy of eye movement detection in varying lighting conditions.
-- Implement support for multiple screen resolutions.
-
-## License
-
-This project is licensed under the MIT License. See the `LICENSE` file for more details.
+- Improve eye tracking accuracy in low-light environments.
+- Add support for multi-monitor setups.
+- Enhance customization options for blink detection and cursor mapping.
+- Add a GUI for user-friendly configuration.
 
 ## Acknowledgments
 
-- [OpenCV](https://opencv.org/) for image processing.
-- [MediaPipe](https://mediapipe.dev/) for face and eye detection.
-- [PyAutoGUI](https://pyautogui.readthedocs.io/en/latest/) for mouse control.
+- **OpenCV**: For image processing.
+- **MediaPipe**: For facial landmark detection and tracking.
+- **PyAutoGUI**: For controlling the mouse programmatically.
+
+## License
+
+This project is licensed under the MIT License - see the `LICENSE` file for more details.
 
 ---
 
-Feel free to contribute by submitting issues or pull requests. We welcome any feedback or suggestions for improvement!
+Feel free to contribute or suggest improvements by opening issues or pull requests!
