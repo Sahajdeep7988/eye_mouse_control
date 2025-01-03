@@ -52,6 +52,7 @@ python main.py
 ## Project Files
 
 - **`eye_tracker.py`**: Handles eye tracking and blink detection using MediaPipe.
+- **`utils.py`**: contains the code to open camera
 - **`mouse_control.py`**: Controls mouse movements and clicks using PyAutoGUI.
 - **`main.py`**: The main script that integrates all components and runs the application.
 - **`README.md`**: Documentation for the project.
