@@ -26,7 +26,12 @@ Install the required dependencies using the following command:
 pip install opencv-python mediapipe pyautogui
 ```
 
-or use pip install -r requirements.txt
+or use 
+
+```bash
+pip install -r requirements.txt
+```
+
 
 ## How It Works
 
